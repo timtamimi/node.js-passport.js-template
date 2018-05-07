@@ -1,0 +1,20 @@
+include partials/header
+
+div.container
+	div.row
+		.col-md-4.offset-md-4#loginBox
+			div.account-wall
+			form(class='form-signin', action='/login', method='POST')
+				input(type='text', name='username' class='form-control', placeholder='Email',required, autofocus)
+				input(type='password', name='password' class='form-control', placeholder='Password', required)
+				input(type='checkbox', name='remember', placeholder='Remember me')
+				|   Remember me
+				button(class='btn btn-lg btn-primary btn-block', type='submit') Sign in
+				span.clearfix
+				
+			a(href='/join', class='text-center new-account') Create an account
+
+
+					
+br
+include partials/footer

@@ -1,0 +1,20 @@
+include partials/header
+
+div.container
+	div.row
+		.col-md-4.offset-md-4#loginBox
+			div.account-wall
+			form(class='form-signup', action='/join', method='POST')
+				input(type='text', name='firstName' class='form-control', placeholder='First name', autofocus)
+				input(type='text', name='lastName' class='form-control', placeholder='Last name')
+				input(type='text', name='username' class='form-control', placeholder='Email',required)
+				input(type='password', name='password' class='form-control', placeholder='Password', required)
+				button(class='btn btn-lg btn-primary btn-block', type='submit') Join
+				span.clearfix
+				
+			a(href='/login', class='text-center new-account') Already have an account? Sign in.
+
+
+					
+br
+include partials/footer

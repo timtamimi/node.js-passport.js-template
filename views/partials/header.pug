@@ -1,0 +1,65 @@
+html(lang='en')
+	head
+		title #{title}
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		link(rel='stylesheet', href='/public/css/bootstrap.css')
+		link(rel='stylesheet', href='/public/css/slick.css')
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:100,400,700')
+		link(rel='stylesheet', href='/public/css/style.css')
+		link(rel='stylesheet', href='/public/css/bootstrap-table.css')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css')
+		link(rel='stylesheet', href='/public/css/bootstrap-select.css')
+		link(rel='stylesheet', href='/public/css/font-awesome.css')
+		link(rel='stylesheet', href='/public/css/selectize.css')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+		script(src='/public/js/slick.js')
+		
+		script(src='/public/js/popper.js')
+		script(src='/public/js/tooltip.js')
+		script(src='/public/js/bootstrap.js')
+		script(src='/public/js/bootstrap-table.js')
+		script(src='/public/js/bootstrap-select.js')
+		script(src='/public/js/selectize.js')
+		script(src='/public/js/Chart.js')
+		script(src='/public/js/scripts.js')
+	
+	body
+		if messages
+			if messages.warning
+				if messages.warning.length
+					div.alert.alert-warning.alert-dismissable
+						a(data-dismiss="alert", aria-label="close").close &times;
+						strong #{messages.warning}
+			if messages.danger
+				if messages.danger.length
+					div.alert.alert-danger.alert-dismissable
+						a(data-dismiss="alert", aria-label="close").close &times;
+						strong #{messages.danger}
+			if messages.success
+				if messages.success.length
+					div.alert.alert-success.alert-dismissable
+						a(data-dismiss="alert", aria-label="close").close &times;
+						strong #{messages.success}
+				
+
+		.container-fluid
+			.container(style="min-height:10em;")
+				h1
+					a(href="/" style="color:inherit; text-decoration:none;")
+						strong #{title}
+				div.row
+					nav(style="width:100%").navbar.navbar-light.bg-light.justifty-content-between
+						a.navbar-brand #{title}
+						form.form-inline
+							if (userData)
+								div.dropdown
+									button(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false").btn.btn-info.dropdown-toggle Hello, #{userData[0].firstName}
+									div(aria-labelledby="accountDropDown").dropdown-menu
+										a(href="/account").dropdown-item Account
+										.dropdown-divider
+										a(href="/logout").dropdown-item Logout
+							else
+								button(type="button", data-html="true", data-toggle="popover", rel="popover", aria-haspopup="true", aria-expanded="false", data-content="<form action='/login' method='POST' class='form-signin'><input type='text' name='username' placeholder='Email' required='required' autofocus='autofocus' class='form-control'/>  <input type='password' name='password' placeholder='Password' required='required' class='form-control'/>  <input type='checkbox' name='remember' placeholder='Remember me'/>  Remember me  <button type='submit' class='btn btn-lg btn-primary btn-block'>Sign in</button><span class='clearfix'></span></form><a href='/join' class='text-center new-account'>Create an account</a>").btn.btn-info  Log in
+								
+			
+		br
