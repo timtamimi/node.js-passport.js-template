@@ -14,8 +14,7 @@ var app = express();
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
 
-const expressSession = require('express-session');
-app.use(expressSession({secret: 'mySecretKey'}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
